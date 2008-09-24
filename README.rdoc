@@ -19,9 +19,11 @@ The core of Jacker, its interface simple enough to describe right here:
 
 A simple wrapper to the library for use from the command line.
 
-  $ jacker start working on a task
-  $ jacker current # => "working on a task"
+  $ jacker start working on jacker readme
+  $ jacker current # => working on jacker readme
   $ jacker stop
+  $ jacker report
+    09/24/08 08:00 08:05 working on jacker readme
 
 === The OSX App
 
