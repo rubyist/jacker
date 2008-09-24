@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+# -*- ruby -*-
+begin
+  require 'jacker'
+rescue LoadError
+  require 'rubygems'
+  require 'jacker'
+end
+
+case command = ARGV.shift
+when 'start'
+  Jacker.start(ARGV.join(' '))
+when 'stop'
+  Jacker.stop
+when 'current'
+  puts Jacker.current || ''
+when 'report'
+  Jacker.report do |entry, start, stop|
+    puts "#{start.strftime('%D %H:%M')} #{stop.strftime('%H:%M')} #{entry}"
+  end
+when 'reset'
+  print "This will kill all entries - are you sure? [yes/N] "
+  answer = gets
+  if answer.strip.downcase == 'yes'
+    Jacker.destroy
+  end
+else
+  puts "Unknown command `#{command}'"
+end
