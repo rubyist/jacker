@@ -2,7 +2,7 @@ PKG_FILES = ["Rakefile", "lib/jacker.rb"]
 
 Gem::Specification.new do |s|
   s.name = 'jacker'
-  s.version = "1.0"
+  s.version = "1.1"
   s.summary = 'Very simple job tracker'
   s.description = <<-EOF
 Jacker is a very simple job tracker.

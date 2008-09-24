@@ -14,6 +14,8 @@ when 'stop'
   Jacker.stop
 when 'current'
   puts Jacker.current || ''
+when 'status'
+  puts Jacker.status
 when 'report'
   Jacker.report do |entry, start, stop|
     puts "#{start.strftime('%D %H:%M')} #{stop.strftime('%H:%M')} #{entry}"

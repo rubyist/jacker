@@ -95,4 +95,17 @@ class TestJacker < Test::Unit::TestCase
 
     assert_equal 'a job', a[0][0]
   end
+
+  def test_status_while_running
+    Jacker.setup
+    Jacker.start 'a job'
+
+    assert_equal "jacking: a job", Jacker.status
+  end
+
+  def test_status_while_not_running
+    Jacker.setup
+
+    assert_equal "not jacking", Jacker.status
+  end
 end

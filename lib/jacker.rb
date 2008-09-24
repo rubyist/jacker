@@ -50,6 +50,14 @@ module Jacker
     end
   end
 
+  def self.status
+    if running?
+      "jacking: #{current}"
+    else
+      "not jacking"
+    end
+  end
+
   private
   def self.with_db
     setup
