@@ -25,6 +25,7 @@ class JackerController < OSX::NSWindowController
     statusbar = NSStatusBar.systemStatusBar
     item = statusbar.statusItemWithLength(NSVariableStatusItemLength)
     item.setTitle "J"
+    item.setHighlightMode true
     
     item.setMenu(@theMenu)
     item.setEnabled(true)
