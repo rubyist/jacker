@@ -16,6 +16,7 @@ class JackerController < OSX::NSWindowController
   
   ib_outlet :theMenu
   ib_outlet :jackItem
+  ib_outlet :statusItem
   
   ib_action :jackIt
   ib_action :startJacking
@@ -51,5 +52,6 @@ class JackerController < OSX::NSWindowController
   
   def setMenuStatus
     @jackItem.setTitle Jacker.running? ? "Stop Jacking" : "Start Jacking"
+    @statusItem.setTitle Jacker.status
   end
 end
