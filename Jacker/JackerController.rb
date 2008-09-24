@@ -17,7 +17,7 @@ class JackerController < OSX::NSWindowController
   ib_outlet :theMenu
   ib_outlet :jackItem
   
-  ib_action :jack_it
+  ib_action :jackIt
   ib_action :startJacking
   
   def awakeFromNib
@@ -30,7 +30,7 @@ class JackerController < OSX::NSWindowController
     setMenuStatus
   end
   
-  def jack_it(sender)
+  def jackIt(sender)
     if Jacker.running?
       self.stopJacking
     else
