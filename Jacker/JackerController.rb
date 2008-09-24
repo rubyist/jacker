@@ -20,7 +20,7 @@ class JackerController < OSX::NSWindowController
   
   ib_action :jackIt
   ib_action :startJacking
-  
+    
   def awakeFromNib
     statusbar = NSStatusBar.systemStatusBar
     item = statusbar.statusItemWithLength(NSVariableStatusItemLength)
@@ -54,5 +54,9 @@ class JackerController < OSX::NSWindowController
   def setMenuStatus
     @jackItem.setTitle Jacker.running? ? "Stop Jacking" : "Start Jacking"
     @statusItem.setTitle Jacker.status
+  end
+  
+  def menuWillOpen(menu)
+    setMenuStatus
   end
 end
