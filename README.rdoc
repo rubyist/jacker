@@ -33,6 +33,7 @@ An app that sits in the status tray alowing you to start and stop jacking.  You
 can hook a global keyboard shortcut to this.  Here are some screenshots:
 
 http://img.skitch.com/20080924-bj65jybi5g36f9qtkj91a83exb.jpg
+
 http://img.skitch.com/20080924-gjgiifghra2ajxng6x6bcb7x4.jpg
 
 == Downloading
