@@ -1,0 +1,36 @@
+= Jacker - A simple time/job tracker
+
+Jacker is an extremely simple time tracker.  It doesn't have any fancy
+features, you just tell it what you're working on when you start and when you
+stop.  
+
+== The 3 Parts of Jacker
+
+=== The Ruby Library
+
+The core of Jacker, its interface simple enough to describe right here:
+
+  Jacker.start('working on a task')
+  Jacker.current                       # => "working on a task"
+  Jacker.running?                      # => true
+  Jacker.stop
+
+=== The Command Line Interface
+
+A simple wrapper to the library for use from the command line.
+
+  $ jacker start working on a task
+  $ jacker current # => "working on a task"
+  $ jacker stop
+
+=== The OSX App
+
+An app that sits in the status tray alowing you to start and stop jacking.  You
+can hook a global keyboard shortcut to this.
+
+== Downloading
+
+You can install the rubyist-jacker gem from github to get the library and
+command line interface.  Use the git repository to get the OSX app for now,
+it's not quite polished enough for distribution yet.  It currently expects you
+to have the gem installed.
