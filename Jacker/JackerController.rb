@@ -41,9 +41,10 @@ class JackerController < OSX::NSWindowController
   end
   
   def startJacking(sender)
-    close
-    Jacker.start sender.stringValue
+    what = sender.stringValue.strip
+    Jacker.start what unless what.empty?
     setMenuStatus
+    close
     sender.setStringValue ""
   end
   
