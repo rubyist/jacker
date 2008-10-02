@@ -1,11 +1,6 @@
 #!/usr/bin/env ruby
 # -*- ruby -*-
-begin
-  require 'jacker'
-rescue LoadError
-  require 'rubygems'
-  require 'jacker'
-end
+require File.dirname(__FILE__) + "/../lib/jacker"
 
 case command = ARGV.shift
 when 'start'
