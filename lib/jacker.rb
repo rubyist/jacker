@@ -33,11 +33,23 @@ module Jacker
     results.size > 0 && results[0][0].to_i > 0
   end
 
-  def self.current
+  def self.current(options={})
     results = self.with_db do |db|
-      db.execute("SELECT what FROM entries WHERE stop IS NULL")
+      db.execute("SELECT what, start FROM entries WHERE stop IS NULL")
     end
-    results.size > 0 ? results[0][0] : nil
+
+    return nil if results.empty?
+
+    what, start = results[0][0], Time.parse(results[0][1])
+    options[:elapsed] ? "#{what} (#{elapsed(start, Time.now)})" : what
+  end
+
+  # rounds up to nearest 15 minute increment
+  def self.elapsed(start, stop)
+    seconds = ((stop - start) / 60).to_i
+    hours = seconds / 60
+    minutes = (seconds % 60 + 14) / 15 * 15
+    sprintf("%d:%02d", hours, minutes)
   end
 
   def self.report
@@ -52,7 +64,7 @@ module Jacker
 
   def self.status
     if running?
-      "jacking: #{current}"
+      "jacking: #{current(:elapsed => true)}"
     else
       "not jacking"
     end

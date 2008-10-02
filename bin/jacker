@@ -8,12 +8,12 @@ when 'start'
 when 'stop'
   Jacker.stop
 when 'current'
-  puts Jacker.current || ''
+  puts Jacker.current(:elapsed => true) || ''
 when 'status'
   puts Jacker.status
 when 'report'
   Jacker.report do |entry, start, stop|
-    puts "#{start.strftime('%D %H:%M')} #{stop.strftime('%H:%M')} #{entry}"
+    puts "#{start.strftime('%D %H:%M')} - #{stop.strftime('%H:%M')} (#{Jacker.elapsed(start, stop)}) #{entry}"
   end
 when 'reset'
   print "This will kill all entries - are you sure? [yes/N] "
